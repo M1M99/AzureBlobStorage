@@ -1,0 +1,1 @@
+Git security e gore icaze verimir ki appsetting jsonu gonderim  ona gore connectionstring yoxdu localda her sey normal isleyir run etmek isteseniz yeni appsetting json add edin ve connectionstring i elave edin
