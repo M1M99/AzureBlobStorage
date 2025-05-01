@@ -1,0 +1,27 @@
+﻿@model List<string>
+
+<h2>Upload Image</h2>
+<form method="post" enctype="multipart/form-data" asp-action="UploadImage">
+    <input type="file" name="file" />
+    <button type="submit" class="btn btn-success">Upload Image</button>
+</form>
+<hr />
+<h2>
+    Image Gallery
+</h2>
+
+@if(Model != null && Model.Any())
+{
+    <ul>
+        @foreach(var imgurl in Model)
+        {
+            var fileName = System.IO.Path.GetFileName(imgurl);
+            <li style="display:flex;justify-content:space-around">
+                <img  src="@imgurl" alt="image" width="250" height="250"/>
+                <a class="btn btn-primary h-50" asp-action="DownloadImage" asp-route-fileName="@fileName">
+                    Download
+                </a>
+            </li>
+        }
+    </ul>
+}

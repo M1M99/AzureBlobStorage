@@ -1,0 +1,16 @@
+﻿@model List<string>
+<h1 class="my-3 text-success">Azure Blob Storage</h1>
+<div class="my-3">
+    <h3>Upload Video</h3>
+    <form method="post" asp-action="UploadFile" enctype="multipart/form-data" >
+        <input type="file" name="formFile" />
+        <button type="submit" class="btn btn-success">Upload Video</button>
+    </form>
+</div>
+<h4>Videos</h4>
+@foreach (var item in Model)
+{
+    var fileName = System.IO.Path.GetFileName(item);
+    <video controls src="@item" autoplay loop class="w-75 h-75 mt-2"></video>
+    <a class="btn btn-dark" asp-action="DownloadVideo" asp-route-fileName="@fileName">Download</a>
+}
